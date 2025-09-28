@@ -27,13 +27,13 @@ The chatbot can understand natural language queries like:
 
 ---
 
-<u>## 📂 Project Structure </u>
-WeatherChatbot/
-│── app.py # Flask backend
-│── requirements.txt # Dependencies
-│── .env # API key storage
-│── templates/
-│ └── index.html # Chat UI
+<u>## 📂 Project Structure </u><br>
+NLP-Based-Weather-Chatbot/<br>
+│── app.py # Flask backend<br>
+│── requirements.txt # Dependencies<br>
+│── .env # API key storage<br>
+│── templates/<br>
+│ └── index.html # Chat UI<br>
 
 
 ---
@@ -63,36 +63,36 @@ python app.py
 
 ---
 
-<u>## 📋 Example Queries : </u>
-<ol><li></li>1.Here are some queries you can try directly: </li>
-<li>2.Delhi weather </li>
-<li>3.Mumbai temperature </li>
-<li>4.Japan weather </li>
-<li>5.China temperature </li>
-<li>6. Russia weather </li>
-<li>7. New York weather </li>
-<li>8. London temperature </li>
-<li>10. Tokyo weather </li>
-<li>11. Paris temperature </li>
-<li>12. Sydney weather </li>
-<li>13. Dubai temperature </li>
-<li>14. Toronto weather </li>
-<li>15. Singapore temperature </li>
-<li>16. Berlin weather </li></ol>
+<u>## 📋 Example Queries : </u><br>
+<ol><li>Here are some queries you can try directly: </li>
+<li>Delhi weather </li>
+<li>Mumbai temperature </li>
+<li>Japan weather </li>
+<li>China temperature </li>
+<li> Russia weather </li>
+<li> New York weather </li>
+<li> London temperature </li>
+<li> Tokyo weather </li>
+<li> Paris temperature </li>
+<li> Sydney weather </li>
+<li> Dubai temperature </li>
+<li> Toronto weather </li>
+<li> Singapore temperature </li>
+<li> Berlin weather </li></ol>
 
 ---
 
-<u>##🚧 Known Issues : </u>
-Some queries like "weather now" may fail due to NLP misinterpretation.
-Requires valid city names for best results.
+<u>##🚧 Known Issues : </u><br>
+<li>Some queries like "weather now" may fail due to NLP misinterpretation.</li>
+<li>Requires valid city names for best results.</li>
 
 ---
 
-<u>##✨ Future Improvements : </u>
-✅ Support for voice input.
-✅ Add multiple day forecasts.
-✅ Improve NLP accuracy with custom entity recognition.
-✅ Dark mode UI.
+<u>##✨ Future Improvements : </u><br>
+<li>✅ Support for voice input.</li>
+<li>✅ Add multiple day forecasts.</li>
+<li>✅ Improve NLP accuracy with custom entity recognition.</li>
+<li>✅ Dark mode UI.</li>
 
 ---
 
