@@ -1,4 +1,4 @@
-<b><u># NLP-Based-Weather-Chatbot </u></b>
+<h2><b><u># NLP-Based-Weather-Chatbot </u></b></h2>
 
 A simple **NLP-powered chatbot** built with **Flask + OpenWeatherMap API** that provides **current weather** and **5-day forecast** for cities worldwide.  
 The chatbot can understand natural language queries like:
@@ -41,24 +41,24 @@ NLP-Based-Weather-Chatbot/<br>
 <u>## ⚙️ Installation & Setup </u>
 
 ### 1️⃣ Clone the repository
-.bash
-git clone https://github.com/mr-aakash897/NLP-Based-Weather-Chatbot.git
-cd NLP-Based-Weather-Chatbot
+.bash<br>
+git clone https://github.com/mr-aakash897/NLP-Based-Weather-Chatbot.git<br>
+cd NLP-Based-Weather-Chatbot<br>
 
 ### 2️⃣ Create a virtual environment
-python -m venv venvnlp
-venvnlp\Scripts\activate    # On Windows
-source venvnlp/bin/activate # On Mac/Linux
+python -m venv venvnlp<br>
+venvnlp\Scripts\activate    # On Windows<br>
+source venvnlp/bin/activate # On Mac/Linux<br>
 
 ### 3️⃣ Install dependencies
 pip install -r requirements.txt
 
 ### 4️⃣ Add your OpenWeatherMap API Key
-Create a .env file in the project root and add:
-OPENWEATHER_API_KEY=your_api_key_here     (You can get a free API key from 👉 OpenWeatherMap.)
+Create a .env file in the project root and add:<br>
+OPENWEATHER_API_KEY=your_api_key_here     (You can get a free API key from 👉 OpenWeatherMap.)<br>
 
 ### 5️⃣ Run the project
-python app.py
+python app.py<br>
 (The app will start at 👉 http://127.0.0.1:5000)
 
 ---
