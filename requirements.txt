@@ -1,0 +1,8 @@
+Flask
+flask_cors
+nltk
+spacy
+transformers
+requests
+python-dotenv
+torch

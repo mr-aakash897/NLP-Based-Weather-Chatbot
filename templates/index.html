@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI ChatBot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-gradient: linear-gradient(115deg, #71d3ff 0%, #8257e6 40%, #f769a9 95%);
+      --nav-hover: linear-gradient(90deg,#00fff7 0,#f769a9 100%);
+      --btn-gradient: linear-gradient(90deg,#33cfff 10%,#8257e6 90%);
+      --btn-hover: linear-gradient(90deg,#f769a9 40%,#33cfff 90%);
+      --chat-user: linear-gradient(110deg,#8257e6 48%,#33cfff 95%);
+      --chat-bot: linear-gradient(110deg,#f4f8fb 60%,#71d3ff 100%);
+      --radius-card: 2.2rem;
+      --radius-bubble: 1.2rem;
+      --shadow: 0 5px 22px #8257e655, 0 2px 10px #f769a923;
+      --nav-focus: #f769a9;
+      --input-focus: #71d3ff;
+      --input-hover: #8257e6;
+      --footer-color: #f769a9;
+      --glass: rgba(255,255,255,0.73);
+    }
+    body.dark {
+      --main-gradient: linear-gradient(120deg, #23294a 10%, #8257e6 90%);
+      --glass: rgba(39,42,66,0.83);
+      --footer-color: #8257e6;
+    }
+    html, body {margin:0;padding:0;min-height:100vh;font-family:"Roboto",Arial,sans-serif;background:var(--main-gradient);color:#23294a;transition:background 0.22s;}
+    * {box-sizing: border-box;}
+    header {
+      width: 100%; position:sticky; top:0; z-index:100;
+      background: var(--glass);
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1.3rem 2.5rem;box-shadow:var(--shadow);border-bottom-left-radius:2rem;border-bottom-right-radius:2rem;backdrop-filter: blur(7px);transition: background 0.22s;
+    }
+    .logo {
+      font-family:'Poppins',sans-serif;font-size:2.3rem;font-weight:600;letter-spacing:2px;
+      background:var(--btn-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      text-shadow:0 4px 14px #8257e622;
+      text-decoration:none;
+    }
+    nav {display: flex; gap: 32px;}
+    nav a {
+      position:relative;
+      font-family:'Poppins',sans-serif; font-size:1.11rem; font-weight:600; letter-spacing:1px;
+      color:#8257e6; text-decoration:none; padding:8px 14px; border-radius:18px;
+      transition: background 0.2s, color 0.2s, box-shadow 0.21s, transform 0.19s;
+    }
+    nav a::after {
+      content:"";position:absolute;left:0;top:0;width:100%;height:100%;border-radius:inherit;z-index:-1;opacity:0;
+      background:var(--nav-hover);transition: opacity 0.22s;
+    }
+    nav a:hover, nav a:focus {
+      color: #fff; transform: scale(1.10); box-shadow: 0 1px 10px #f769a911;
+    }
+    nav a:hover::after, nav a:focus::after {opacity:1;}
+    .toggle-theme {
+      background: var(--btn-gradient); color:#fff; border:none;
+      font-size:1.2rem; padding:7px 16px; margin-left:14px; border-radius:100px; cursor:pointer;
+      font-family:'Poppins',sans-serif; box-shadow: var(--shadow); transition: background 0.19s, color 0.19s;
+    }
+    .toggle-theme.active {background:var(--btn-hover);color:#23294a;box-shadow:0 2px 12px #f769a933;}
+    main {max-width:900px;margin:54px auto 0 auto;padding:0 16px;display: flex; flex-direction:column; align-items:center; gap:54px;}
+    .chat-section {
+      width:100%;max-width:520px;border-radius:var(--radius-card);margin:0 auto;background:var(--glass);backdrop-filter: blur(6px);
+      box-shadow:var(--shadow);display:flex;flex-direction: column; min-height:400px;overflow: hidden;
+      border: 2px solid #8257e677;transition: background 0.16s;
+    }
+    .chat-header {
+      font-family:"Poppins",sans-serif;font-size:1.2rem;font-weight:700;padding:1.09rem 2.0rem;background:var(--btn-gradient);color: #fff;
+      text-align:center;border-bottom:2px solid #71d3ff33;box-shadow: 0 5px 17px #8257e618;
+    }
+    .chat-messages {
+      flex:1; display:flex; flex-direction:column; gap:0.7rem; padding:1.5rem 1.1rem;
+      overflow-y:auto; scroll-behavior:smooth; background:transparent;transition:background 0.17s;
+    }
+    .message {display:flex;align-items:flex-end;margin-bottom:10px;animation:fadeIn .43s;will-change:transform,opacity;}
+    @keyframes fadeIn {from{opacity:0;transform:scale(.92) translateY(25px);}to{opacity:1;transform:scale(1) translateY(0);}}
+    .message.user {justify-content:flex-end;}
+    .message.bot {justify-content:flex-start;}
+    .message .msg-content {max-width:75%;padding:13px 20px;border-radius:var(--radius-bubble);font-size:1.07rem;font-family:"Roboto",sans-serif;word-break:break-word;box-shadow:0 2px 10px #8257e612;transition: background 0.17s;}
+    .message.user .msg-content {background:var(--chat-user);color:#fff;border-top-right-radius:9px;}
+    .message.bot .msg-content {background:var(--chat-bot);color:#23294a;border-top-left-radius:9px;}
+    .message.user .msg-content:hover,.message.user .msg-content:focus{background:var(--btn-hover);box-shadow:0 4px 18px #f769a932;}
+    .message.bot .msg-content:hover,.message.bot .msg-content:focus{background:var(--btn-gradient);color:#fff;box-shadow:0 4px 18px #71d3ff33;}
+    .chat-input-area {
+      display: flex; gap: 17px; padding:1rem 1.3rem 1.12rem; background: none;
+      border-top:2px solid #71d3ff54;
+    }
+    .chat-input-area input[type="text"] {
+      flex:1;font-size:1.16rem; padding:13px 19px; border-radius:14px; border:2px solid #8257e638;
+      background:rgba(255,255,255,0.96);box-shadow:0 2px 8px #8257e61a;outline: none;font-family:"Roboto",sans-serif;
+      transition:border .15s, box-shadow .13s;
+    }
+    .chat-input-area input[type="text"]:focus {border-color: var(--input-focus);box-shadow:0 2px 10px #71d3ff55;}
+    .chat-input-area input[type="text"]:hover {border-color: var(--input-hover);box-shadow: 0 0px 18px #8257e633;}
+    .send-btn {
+      background: var(--btn-gradient); color:#fff; border:none;
+      font-size:1.15rem; font-family:'Poppins',sans-serif; font-weight:600; padding:12px 24px; border-radius:1rem;
+      cursor:pointer; box-shadow:0 2px 10px #71d3ff23;transition: background 0.21s, box-shadow 0.17s, transform .11s;
+      border:2px solid transparent;
+    }
+    .send-btn:hover, .send-btn:focus {background:var(--btn-hover);color:#23294a;transform:scale(1.07);border:2px solid #f769a9;}
+    .send-btn:active {background:var(--nav-hover); color:#fff;}
+    footer {
+      margin:60px 0 0 0;text-align:center;color:var(--footer-color);
+      font-size:1.09rem;font-weight:600;font-family:'Poppins',sans-serif;opacity:0.95;
+      letter-spacing:.6px;transition: color 0.11s;
+    }
+    @media (max-width:780px){header{flex-direction:column;gap:7px;padding:15px 6px;}nav{gap:17px;}main{padding:0 3px 24px 3px;}.chat-section{max-width:100%;}}
+    @media (max-width:480px){.logo{font-size:1.4rem;}nav a{font-size:.89rem;padding:4px 7px;}.chat-header{font-size:.94rem;padding:0.7rem 0.2rem;}.chat-section{border-radius:1.1rem;min-height:230px;}footer{font-size:.94rem;}}
+  </style>
+</head>
+<body>
+<header>
+  <a href="#" class="logo">AI ChatBot</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="#chat">Chat</a>
+    <a href="#about">About</a>
+  </nav>
+  <button id="theme-btn" title="Toggle theme" class="toggle-theme">☀️</button>
+</header>
+<main>
+  <section class="chat-section" id="chat">
+    <div class="chat-header">💬 Chat Interface</div>
+    <div class="chat-messages" id="messages"></div>
+    <form class="chat-input-area" id="chat-form" autocomplete="off">
+      <input type="text" id="user-input" placeholder="Type your message..." required />
+      <button type="submit" class="send-btn">Send</button>
+    </form>
+  </section>
+</main>
+<footer id="about">Crafted with love and care · 2025</footer>
+
+<script>
+const themeBtn = document.getElementById('theme-btn');
+function setTheme(mode){
+  document.body.classList.toggle('dark', mode==='dark');
+  themeBtn.textContent = mode==='dark' ? '🌙' : '☀️';
+  themeBtn.classList.toggle('active', mode==='dark');
+  localStorage.setItem('theme', mode);
+}
+const storedTheme = localStorage.getItem('theme');
+setTheme(storedTheme==='dark'?'dark':'light');
+themeBtn.onclick=()=>setTheme(document.body.classList.contains('dark')?'light':'dark');
+
+const messagesElem = document.getElementById('messages');
+const chatForm = document.getElementById('chat-form');
+const userInput = document.getElementById('user-input');
+
+function addMessage(text, sender){
+  const msgDiv=document.createElement('div');
+  msgDiv.className='message '+sender;
+  msgDiv.innerHTML=`<div class="msg-content">${text}</div>`;
+  messagesElem.appendChild(msgDiv);
+  messagesElem.scrollTop = messagesElem.scrollHeight;
+}
+
+// Async fetch to backend
+async function getBotReply(msg) {
+  try {
+    const res = await fetch('/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg })
+    });
+    const data = await res.json();
+
+    if (data.type === 'current') {
+      return `Current weather in ${data.weather.name}: ${data.weather.temp}°C, ${data.weather.description}. ${data.weather.recommendation}`;
+    } else if (data.type === 'forecast') {
+      const firstDay = Object.keys(data.forecast)[0];
+      const firstItem = data.forecast[firstDay][0];
+      return `Forecast for ${firstDay} in ${data.location}: ${firstItem.temp}°C, ${firstItem.description}. ${firstItem.recommendation}`;
+    } else if (data.message) {
+      return data.message;
+    } else if (data.error) {
+      return "Error: " + data.error;
+    } else {
+      return "Sorry, I didn't understand.";
+    }
+  } catch (err) {
+    console.error(err);
+    return "Oops! Something went wrong connecting to the server.";
+  }
+}
+
+chatForm.onsubmit = async (e)=>{
+  e.preventDefault();
+  const userMsg = userInput.value.trim();
+  if(!userMsg) return;
+  addMessage(userMsg, 'user');
+  userInput.value='';
+  const botReply = await getBotReply(userMsg);
+  addMessage(botReply, 'bot');
+};
+</script>
+</body>
+</html>
