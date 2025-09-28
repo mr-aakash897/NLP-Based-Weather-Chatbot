@@ -1,4 +1,4 @@
-<b># NLP-Based-Weather-Chatbot </b>
+<b><u># NLP-Based-Weather-Chatbot </u></b>
 
 A simple **NLP-powered chatbot** built with **Flask + OpenWeatherMap API** that provides **current weather** and **5-day forecast** for cities worldwide.  
 The chatbot can understand natural language queries like:
@@ -9,7 +9,7 @@ The chatbot can understand natural language queries like:
 
 ---
 
-## 🚀 Features
+<u>## 🚀 Features </u>
 - 🌍 Get **current weather** for any city.  
 - 📅 Get **5-day weather forecast**.  
 - 💬 Chat-like interface with bot responses.  
@@ -19,7 +19,7 @@ The chatbot can understand natural language queries like:
 
 ---
 
-## 🛠️ Tech Stack
+<u>## 🛠️ Tech Stack </u>
 - **Backend:** Python, Flask  
 - **Frontend:** HTML, CSS, JavaScript  
 - **NLP:** spaCy, NLTK  
@@ -27,7 +27,7 @@ The chatbot can understand natural language queries like:
 
 ---
 
-## 📂 Project Structure
+<u>## 📂 Project Structure </u>
 WeatherChatbot/
 │── app.py # Flask backend
 │── requirements.txt # Dependencies
@@ -38,7 +38,7 @@ WeatherChatbot/
 
 ---
 
-## ⚙️ Installation & Setup
+<u>## ⚙️ Installation & Setup </u>
 
 ### 1️⃣ Clone the repository
 .bash
@@ -61,32 +61,40 @@ OPENWEATHER_API_KEY=your_api_key_here     (You can get a free API key from 👉 
 python app.py
 (The app will start at 👉 http://127.0.0.1:5000)
 
-### 📋 Example Queries
-1.Here are some queries you can try directly:
-2.Delhi weather
-3.Mumbai temperature
-4.Japan weather
-5.China temperature
-6. Russia weather
-7. New York weather
-8. London temperature
-10. Tokyo weather
-11. Paris temperature
-12. Sydney weather
-13. Dubai temperature
-14. Toronto weather
-15. Singapore temperature
-16. Berlin weather
+---
 
-##🚧 Known Issues :
+<u>## 📋 Example Queries : </u>
+<ol><li></li>1.Here are some queries you can try directly: </li>
+<li>2.Delhi weather </li>
+<li>3.Mumbai temperature </li>
+<li>4.Japan weather </li>
+<li>5.China temperature </li>
+<li>6. Russia weather </li>
+<li>7. New York weather </li>
+<li>8. London temperature </li>
+<li>10. Tokyo weather </li>
+<li>11. Paris temperature </li>
+<li>12. Sydney weather </li>
+<li>13. Dubai temperature </li>
+<li>14. Toronto weather </li>
+<li>15. Singapore temperature </li>
+<li>16. Berlin weather </li></ol>
+
+---
+
+<u>##🚧 Known Issues : </u>
 Some queries like "weather now" may fail due to NLP misinterpretation.
 Requires valid city names for best results.
 
-##✨ Future Improvements : 
+---
+
+<u>##✨ Future Improvements : </u>
 ✅ Support for voice input.
 ✅ Add multiple day forecasts.
 ✅ Improve NLP accuracy with custom entity recognition.
 ✅ Dark mode UI.
 
-##🤝 Contributing :
+---
+
+<u>##🤝 Contributing : </u>
 Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to improve.
