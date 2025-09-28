@@ -41,7 +41,7 @@ WeatherChatbot/
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the repository
-```bash
+.bash
 git clone https://github.com/mr-aakash897/NLP-Based-Weather-Chatbot.git
 cd NLP-Based-Weather-Chatbot
 
@@ -78,15 +78,15 @@ python app.py
 15. Singapore temperature
 16. Berlin weather
 
-🚧 Known Issues:
+##🚧 Known Issues :
 Some queries like "weather now" may fail due to NLP misinterpretation.
 Requires valid city names for best results.
 
-✨ Future Improvements: 
+##✨ Future Improvements : 
 ✅ Support for voice input.
 ✅ Add multiple day forecasts.
 ✅ Improve NLP accuracy with custom entity recognition.
 ✅ Dark mode UI.
 
-🤝 Contributing
+##🤝 Contributing :
 Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to improve.
